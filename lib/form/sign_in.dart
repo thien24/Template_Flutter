@@ -12,6 +12,9 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Lấy kích thước màn hình
+    final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Builder(
         builder: (BuildContext context) {
@@ -21,7 +24,8 @@ class SignIn extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 200,
+                    height: screenSize.height *
+                        0.25, // Chiếm 25% chiều cao màn hình
                     decoration: BoxDecoration(
                       color: const Color(0xFF00CEA6),
                     ),
@@ -53,18 +57,21 @@ class SignIn extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 130, 0, 0),
+                    margin: EdgeInsets.fromLTRB(0, screenSize.height * 0.18, 0,
+                        0), // Tính toán kích thước tương ứng
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.elliptical(250, 50)),
+                      borderRadius:
+                          BorderRadius.all(Radius.elliptical(250, 50)),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                          padding:
+                              EdgeInsets.only(left: 30, right: 30, top: 30),
                           child: Text(
                             'Sign in',
                             style: TextStyle(
@@ -72,17 +79,19 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                          padding: EdgeInsets.only(
+                              left: 30, right: 30, top: 10), // Giảm khoảng cách
                           child: Text(
                             'Welcome back, Yoo Jin',
                             style: TextStyle(
-                                fontSize: 30,
+                                fontSize: 24,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 30, right: 30, top: 30),
+                          padding:
+                              EdgeInsets.only(left: 30, right: 30, top: 30),
                           child: Form(
                             key: _formKey,
                             child: Column(
@@ -92,7 +101,8 @@ class SignIn extends StatelessWidget {
                                 Text(
                                   'Email',
                                   style: TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.bold),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 TextFormField(
                                   controller: _emailController,
@@ -115,7 +125,8 @@ class SignIn extends StatelessWidget {
                                 Text(
                                   'Password',
                                   style: TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.bold),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 TextFormField(
                                   controller: _passwordController,
@@ -153,9 +164,11 @@ class SignIn extends StatelessWidget {
                                     print('Đăng nhập thành công');
                                   },
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color.fromARGB(255, 0, 206, 166)),
+                                      backgroundColor:
+                                          Color.fromARGB(255, 0, 206, 166)),
                                   child: SizedBox(
-                                    width: 300,
+                                    width: screenSize.width *
+                                        0.8, // Chiếm 80% chiều rộng màn hình
                                     height: 50,
                                     child: Center(
                                       child: Text(
@@ -180,16 +193,19 @@ class SignIn extends StatelessWidget {
                                     Image.asset(
                                       'assets/face.png',
                                       fit: BoxFit.cover,
+                                      width: 50, // Kích thước cố định
                                     ),
                                     SizedBox(width: 20),
                                     Image.asset(
                                       'assets/talk.png',
                                       fit: BoxFit.cover,
+                                      width: 50, // Kích thước cố định
                                     ),
                                     SizedBox(width: 20),
                                     Image.asset(
                                       'assets/line.png',
                                       fit: BoxFit.cover,
+                                      width: 50, // Kích thước cố định
                                     ),
                                   ],
                                 ),
@@ -213,7 +229,8 @@ class SignIn extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
-                                          color: Color.fromARGB(255, 0, 206, 166),
+                                          color:
+                                              Color.fromARGB(255, 0, 206, 166),
                                         ),
                                       ),
                                     )

@@ -13,13 +13,16 @@ class _SearchPageState extends State<SearchPage> {
   String _query = '';
 
   Future<void> _search(String query) async {
-    final response = await http.get(Uri.parse('https://66f269b271c84d8058752121.mockapi.io/comment'));
+    final response = await http.get(Uri.parse('http://localhost:3000/address'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       // Lọc dữ liệu dựa trên từ khóa tìm kiếm
       setState(() {
-        _searchResults = data.where((item) => item['name'].toLowerCase().contains(query.toLowerCase())).toList();
+        _searchResults = data
+            .where((item) =>
+                item['name'].toLowerCase().contains(query.toLowerCase()))
+            .toList();
       });
     } else {
       throw Exception('Failed to load search results');
@@ -31,7 +34,8 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mời ae search'),
-        backgroundColor: const Color.fromRGBO(202, 241, 234, 1), // Đặt màu nền cho AppBar
+        backgroundColor:
+            const Color.fromRGBO(202, 241, 234, 1), // Đặt màu nền cho AppBar
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -48,10 +52,9 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             TextField(
               decoration: InputDecoration(
-                hintText: 'Tìm kiếm điểm đến, tour...', 
+                hintText: 'Tìm kiếm điểm đến, tour...',
                 filled: true,
                 fillColor: const Color.fromARGB(180, 214, 237, 231),
-
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.search),
               ),
@@ -80,7 +83,8 @@ class _SearchPageState extends State<SearchPage> {
                       backgroundImage: NetworkImage(result['avatar'] ?? ''),
                     ),
                     title: Text(result['name']),
-                    subtitle: Text('Thành phố: ${result['city'] ?? 'Không có thông tin'}'),
+                    subtitle: Text(
+                        'Thành phố: ${result['city'] ?? 'Không có thông tin'}'),
                     onTap: () {
                       // Điều hướng đến trang chi tiết với thông tin đã chọn
                       Navigator.push(
@@ -114,7 +118,12 @@ class DetailPage extends StatelessWidget {
   final String imageCity;
   final String note;
 
-  DetailPage({required this.name, required this.avatar, required this.city, required this.imageCity, required this.note});
+  DetailPage(
+      {required this.name,
+      required this.avatar,
+      required this.city,
+      required this.imageCity,
+      required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +142,8 @@ class DetailPage extends StatelessWidget {
               radius: 40,
             ),
             SizedBox(height: 10),
-            Text('Tên: $name', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text('Tên: $name',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
             Text('Thành phố: $city', style: TextStyle(fontSize: 18)),
             SizedBox(height: 10),

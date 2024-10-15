@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/form/travel.dart';
 import 'travel.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -33,7 +34,8 @@ class ProfilePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => TravelPage()),);// Go back to the previous page)// Back to the previous page
+                        MaterialPageRoute(builder: (context) => TravelPage()),
+                      ); // Go back to the previous page)// Back to the previous page
                     },
                   ),
                 ),
@@ -63,7 +65,9 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 80), // Increased space to avoid overlapping text
+                      SizedBox(
+                          height:
+                              80), // Increased space to avoid overlapping text
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -279,7 +283,7 @@ class EditProfilePage extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 156, 163, 167),
       appBar: AppBar(
         title: Text('Edit Profile'),
-      backgroundColor: Color.fromARGB(255, 156, 163, 167),
+        backgroundColor: Color.fromARGB(255, 156, 163, 167),
         leading: IconButton(
           icon: Icon(Icons.close, color: Colors.black),
           onPressed: () {

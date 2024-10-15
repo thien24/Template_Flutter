@@ -41,7 +41,7 @@ class City {
 }
 
 Future<List<City>> fetchCities() async {
-  final response = await http.get(Uri.parse('https://66f269b271c84d8058752121.mockapi.io/image'));
+  final response = await http.get(Uri.parse('http://localhost:3000/trip'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);
@@ -63,7 +63,8 @@ class TravelPage extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
+                image: NetworkImage(
+                    'https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -90,15 +91,18 @@ class TravelPage extends StatelessWidget {
                       FutureBuilder<List<City>>(
                         future: fetchCities(),
                         builder: (context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.waiting) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
                             return Center(child: CircularProgressIndicator());
                           } else if (snapshot.hasError) {
-                            return Center(child: Text('Lỗi: ${snapshot.error}'));
+                            return Center(
+                                child: Text('Lỗi: ${snapshot.error}'));
                           } else {
                             final cities = snapshot.data!;
                             return Expanded(
                               child: GridView.builder(
-                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   childAspectRatio: 1.0,
                                 ),
@@ -161,7 +165,9 @@ class TravelPage extends StatelessWidget {
             // Điều hướng đến trang SearchPage
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => SearchPage()), // Chuyển đến màn hình SearchPage
+              MaterialPageRoute(
+                  builder: (context) =>
+                      SearchPage()), // Chuyển đến màn hình SearchPage
             );
           } else if (index == 4) {
             Navigator.pushReplacement(
@@ -179,7 +185,8 @@ class TravelPage extends StatelessWidget {
       height: 120,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage('https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
+          image: NetworkImage(
+              'https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -190,7 +197,8 @@ class TravelPage extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignIn()));
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => SignIn()));
           },
           icon: Icon(Icons.arrow_back, color: Colors.black),
         ),
@@ -203,7 +211,8 @@ class TravelPage extends StatelessWidget {
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: isWishList ? Colors.green : Colors.white,
-        border: Border.all(color: const Color.fromARGB(255, 243, 244, 243), width: 2),
+        border: Border.all(
+            color: const Color.fromARGB(255, 243, 244, 243), width: 2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(title),
@@ -315,7 +324,8 @@ class TravelPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                       child: Row(
                         children: [
-                          Icon(Icons.check_circle, size: 10, color: Colors.green),
+                          Icon(Icons.check_circle,
+                              size: 10, color: Colors.green),
                           SizedBox(width: 2),
                           Text(
                             entry.key,

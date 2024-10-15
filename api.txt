@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Bowling Green",
+    "imageURL": "https://dinhcuanhquoc.com/wp-content/uploads/2019/05/London-with-rainbow.jpg",
+    "id": "1",
+    "trip": {
+      "tripName": "Bowling Green Trip",
+      "date": "Dec 12, 2023",
+      "time": "9:00 - 11:00",
+      "guide": "John",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Huntington Beach",
+    "imageURL": "https://vuongquocanh.com/wp-content/uploads/2018/04/london.jpg",
+    "id": "2",
+    "trip": {
+      "tripName": "Huntington Beach Tour",
+      "date": "Dec 15, 2023",
+      "time": "14:00 - 16:00",
+      "guide": "Emma",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Fort Myers",
+    "imageURL": "https://cdnphoto.dantri.com.vn/YsHcZ_WkF1-lKr-en4mX_9dYKm8=/2021/04/30/dji-0788-hdr-panoa-crop-1619717280597.jpeg",
+    "id": "3",
+    "trip": {
+      "tripName": "Fort Myers Adventure",
+      "date": "Jan 10, 2024",
+      "time": "8:00 - 10:00",
+      "guide": "Sophia",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Schenectady",
+    "imageURL": "https://kenh14cdn.com/203336854389633024/2023/4/3/photo-1-168050646049645361715.jpg",
+    "id": "4",
+    "trip": {
+      "tripName": "Schenectady City Tour",
+      "date": "Jan 15, 2024",
+      "time": "10:00 - 12:00",
+      "guide": "Michael",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Fort Worth",
+    "imageURL": "https://cdn-i.vtcnews.vn/files/f1/2015/03/23/nightshots-2_1jpg.jpg",
+    "id": "5",
+    "trip": {
+      "tripName": "Fort Worth Exploration",
+      "date": "Feb 5, 2024",
+      "time": "13:00 - 15:00",
+      "guide": "David",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "New York",
+    "imageURL": "https://cdn.pixabay.com/photo/2016/11/13/12/52/kuala-lumpur-1820944_640.jpg",
+    "id": "6",
+    "trip": {
+      "tripName": "New York Highlights",
+      "date": "Feb 10, 2024",
+      "time": "11:00 - 13:00",
+      "guide": "Alice",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Providence",
+    "imageURL": "https://media.istockphoto.com/id/1351410941/vi/anh/t%E1%BA%A7m-nh%C3%ACn-t%E1%BB%AB-tr%C3%AAn-cao-c%E1%BB%A7a-th%C3%A0nh-ph%E1%BB%91-h%E1%BB%93-ch%C3%AD-minh-vi%E1%BB%87t-nam-c%C3%A1c-t%C3%B2a-nh%C3%A0-ch%E1%BB%8Dc-tr%E1%BB%9Di-l%C3%A0m-%C4%91%E1%BA%B9p-d%E1%BB%8Dc-theo.jpg?s=612x612&w=0&k=20&c=9yATJiVTtAEVKowfMY15dm8ZK4UpTsPVvMcmN9-7S8w=",
+    "id": "7",
+    "trip": {
+      "tripName": "Providence Tour",
+      "date": "Mar 1, 2024",
+      "time": "9:00 - 11:00",
+      "guide": "Brian",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Lancaster",
+    "imageURL": "https://gcs.tripi.vn/public-tripi/tripi-feed/img/474099oca/hinh-anh-thanh-pho-buon-tuyet-dep_093326906.png",
+    "id": "8",
+    "trip": {
+      "tripName": "Lancaster Heritage Tour",
+      "date": "Mar 10, 2024",
+      "time": "10:00 - 12:00",
+      "guide": "Sara",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Laredo",
+    "imageURL": "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/04/anh-thanh-pho-ve-dem.jpg",
+    "id": "9",
+    "trip": {
+      "tripName": "Laredo Night Tour",
+      "date": "Apr 5, 2024",
+      "time": "18:00 - 20:00",
+      "guide": "Jessica",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  },
+  {
+    "name": "Victoria",
+    "imageURL": "https://static.tuoitre.vn/tto/i/s626/2015/04/25/41B6gnc8.jpg",
+    "id": "10",
+    "trip": {
+      "tripName": "Victoria Historical Tour",
+      "date": "Apr 15, 2024",
+      "time": "14:00 - 16:00",
+      "guide": "Emily",
+      "actions": {
+        "Detail": "",
+        "Chat": "",
+        "Pay": ""
+      }
+    }
+  }
+]
