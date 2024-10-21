@@ -41,7 +41,8 @@ class City {
 }
 
 Future<List<City>> fetchCities() async {
-  final response = await http.get(Uri.parse('http://localhost:3000/trip'));
+  final response =
+      await http.get(Uri.parse('https://api-flutter-aemy.onrender.com/trip'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);

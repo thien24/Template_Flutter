@@ -13,7 +13,8 @@ class _SearchPageState extends State<SearchPage> {
   String _query = '';
 
   Future<void> _search(String query) async {
-    final response = await http.get(Uri.parse('http://localhost:3000/address'));
+    final response = await http
+        .get(Uri.parse('https://api-flutter-aemy.onrender.com/address'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);

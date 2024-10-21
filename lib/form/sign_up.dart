@@ -231,7 +231,7 @@ class _SignUpState extends State<SignUp> {
       onPressed: () async {
         if (_formKey.currentState!.validate()) {
           final response = await http.post(
-            Uri.parse('http://localhost:3000/user/signup'),
+            Uri.parse('https://api-flutter-aemy.onrender.com/user/signup'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
             },
