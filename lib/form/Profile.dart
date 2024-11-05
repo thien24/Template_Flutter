@@ -30,11 +30,13 @@ class ProfilePage extends StatelessWidget {
                   top: 20,
                   left: 10,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back, color: Colors.white, size: 28),
+                    icon: const Icon(Icons.arrow_back,
+                        color: Colors.white, size: 28),
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => TravelPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const TravelPage()),
                       ); // Go back to the previous page)// Back to the previous page
                     },
                   ),
@@ -44,11 +46,13 @@ class ProfilePage extends StatelessWidget {
                   top: 20,
                   right: 20,
                   child: IconButton(
-                    icon: Icon(Icons.settings, color: Colors.white, size: 28),
+                    icon: const Icon(Icons.settings,
+                        color: Colors.white, size: 28),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsPage()),
                       );
                     },
                   ),
@@ -65,10 +69,10 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                           height:
                               80), // Increased space to avoid overlapping text
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -79,7 +83,7 @@ class ProfilePage extends StatelessWidget {
                           Icon(Icons.arrow_forward),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       // Use Wrap widget to wrap photos to next line
                       Wrap(
                         spacing: 8.0, // Horizontal space between photos
@@ -103,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 50,
                         backgroundColor: Colors.white,
                         child: CircleAvatar(
@@ -111,12 +115,13 @@ class ProfilePage extends StatelessWidget {
                           backgroundImage: AssetImage('assets/anhthien.png'),
                         ),
                       ),
-                      SizedBox(width: 20), // Space between avatar and text
+                      const SizedBox(
+                          width: 20), // Space between avatar and text
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 15),
-                          Text(
+                          const SizedBox(height: 15),
+                          const Text(
                             'Van Thien',
                             style: TextStyle(
                               fontSize: 16,
@@ -137,7 +142,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -164,12 +169,12 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 156, 163, 167),
+      backgroundColor: const Color.fromARGB(255, 156, 163, 167),
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -183,12 +188,12 @@ class SettingsPage extends StatelessWidget {
             // Profile Info at the top
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 40,
                   backgroundImage: AssetImage('assets/anhthien.png'),
                 ),
-                SizedBox(width: 16),
-                Column(
+                const SizedBox(width: 16),
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -201,70 +206,71 @@ class SettingsPage extends StatelessWidget {
                     Text('Buon ngu'),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EditProfilePage()),
+                          builder: (context) => const EditProfilePage()),
                     ); // Navigate to Edit Profile Page
                   },
-                  child: Text('EDIT PROFILE'),
+                  child: const Text('EDIT PROFILE'),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Settings options
             SwitchListTile(
-              title: Text('Notifications'),
+              title: const Text('Notifications'),
               value: true,
               onChanged: (bool value) {
                 // Handle notification toggle
               },
             ),
             ListTile(
-              leading: Icon(Icons.language),
-              title: Text('Languages'),
+              leading: const Icon(Icons.language),
+              title: const Text('Languages'),
               onTap: () {
                 // Handle languages click
               },
             ),
             ListTile(
-              leading: Icon(Icons.payment),
-              title: Text('Payment'),
+              leading: const Icon(Icons.payment),
+              title: const Text('Payment'),
               onTap: () {
                 // Handle payment click
               },
             ),
             ListTile(
-              leading: Icon(Icons.privacy_tip),
-              title: Text('Privacy & Policies'),
+              leading: const Icon(Icons.privacy_tip),
+              title: const Text('Privacy & Policies'),
               onTap: () {
                 // Handle privacy and policies click
               },
             ),
             ListTile(
-              leading: Icon(Icons.feedback),
-              title: Text('Feedback'),
+              leading: const Icon(Icons.feedback),
+              title: const Text('Feedback'),
               onTap: () {
                 // Handle feedback click
               },
             ),
             ListTile(
-              leading: Icon(Icons.bar_chart),
-              title: Text('Usage'),
+              leading: const Icon(Icons.bar_chart),
+              title: const Text('Usage'),
               onTap: () {
                 // Handle usage click
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: TextButton(
                 onPressed: () {
                   // Handle sign out
                 },
-                child: Text('Sign out', style: TextStyle(color: Colors.red)),
+                child:
+                    const Text('Sign out', style: TextStyle(color: Colors.red)),
               ),
             ),
           ],
@@ -280,12 +286,12 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 156, 163, 167),
+      backgroundColor: const Color.fromARGB(255, 156, 163, 167),
       appBar: AppBar(
-        title: Text('Edit Profile'),
-        backgroundColor: Color.fromARGB(255, 156, 163, 167),
+        title: const Text('Edit Profile'),
+        backgroundColor: const Color.fromARGB(255, 156, 163, 167),
         leading: IconButton(
-          icon: Icon(Icons.close, color: Colors.black),
+          icon: const Icon(Icons.close, color: Colors.black),
           onPressed: () {
             Navigator.pop(context); // Quay lại trang trước
           },
@@ -295,7 +301,7 @@ class EditProfilePage extends StatelessWidget {
             onPressed: () {
               // Thực hiện logic lưu profile ở đây
             },
-            child: Text(
+            child: const Text(
               'SAVE',
               style: TextStyle(color: Colors.green, fontSize: 16),
             ),
@@ -311,7 +317,7 @@ class EditProfilePage extends StatelessWidget {
             Center(
               child: Stack(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 50,
                     backgroundImage: AssetImage('assets/anhthien.png'),
                   ),
@@ -319,7 +325,7 @@ class EditProfilePage extends StatelessWidget {
                     bottom: 0,
                     right: 0,
                     child: IconButton(
-                      icon: Icon(Icons.camera_alt, color: Colors.teal),
+                      icon: const Icon(Icons.camera_alt, color: Colors.teal),
                       onPressed: () {
                         // Thêm logic chọn ảnh
                       },
@@ -328,37 +334,37 @@ class EditProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // First Name
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'First Name',
                 hintText: 'Van',
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Last Name
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Last Name',
                 hintText: 'Thien',
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Password
-            TextField(
+            const TextField(
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Change Password link
             TextButton(
               onPressed: () {
                 // Logic đổi mật khẩu
               },
-              child: Text(
+              child: const Text(
                 'Change Password',
                 style: TextStyle(color: Colors.teal),
               ),

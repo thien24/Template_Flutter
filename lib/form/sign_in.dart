@@ -26,15 +26,15 @@ class SignIn extends StatelessWidget {
                     width: double.infinity,
                     height: screenSize.height *
                         0.25, // Chiếm 25% chiều cao màn hình
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF00CEA6),
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF00CEA6),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(30, 30, 0, 0),
+                          margin: const EdgeInsets.fromLTRB(30, 30, 0, 0),
                           width: 56,
                           height: 56,
                           decoration: BoxDecoration(
@@ -60,7 +60,7 @@ class SignIn extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(0, screenSize.height * 0.18, 0,
                         0), // Tính toán kích thước tương ứng
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius:
                           BorderRadius.all(Radius.elliptical(250, 50)),
@@ -90,15 +90,15 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: 30, right: 30, top: 30),
+                          padding: const EdgeInsets.only(
+                              left: 30, right: 30, top: 30),
                           child: Form(
                             key: _formKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Email',
                                   style: TextStyle(
                                       fontSize: 16,
@@ -121,8 +121,8 @@ class SignIn extends StatelessWidget {
                                     _emailController.text = value!;
                                   },
                                 ),
-                                SizedBox(height: 20),
-                                Text(
+                                const SizedBox(height: 20),
+                                const Text(
                                   'Password',
                                   style: TextStyle(
                                       fontSize: 16,
@@ -145,32 +145,33 @@ class SignIn extends StatelessWidget {
                                   },
                                   obscureText: true,
                                 ),
-                                SizedBox(height: 20),
-                                Text(
+                                const SizedBox(height: 20),
+                                const Text(
                                   'Forgot Password',
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey),
                                 ),
-                                SizedBox(height: 20),
+                                const SizedBox(height: 20),
                                 ElevatedButton(
                                   onPressed: () {
                                     // Chuyển đến TravelPage mà không cần kiểm tra thông tin
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => TravelPage(),
+                                        builder: (context) =>
+                                            const TravelPage(),
                                       ),
                                     );
                                     print('Đăng nhập thành công');
                                   },
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromARGB(255, 0, 206, 166)),
+                                      backgroundColor: const Color.fromARGB(
+                                          255, 0, 206, 166)),
                                   child: SizedBox(
                                     width: screenSize.width *
                                         0.8, // Chiếm 80% chiều rộng màn hình
                                     height: 50,
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Sign in',
                                         style: TextStyle(
@@ -181,12 +182,12 @@ class SignIn extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 30),
-                                Row(
+                                const SizedBox(height: 30),
+                                const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [Text('Or sign in with')],
                                 ),
-                                SizedBox(height: 30),
+                                const SizedBox(height: 30),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -195,13 +196,13 @@ class SignIn extends StatelessWidget {
                                       fit: BoxFit.cover,
                                       width: 50, // Kích thước cố định
                                     ),
-                                    SizedBox(width: 20),
+                                    const SizedBox(width: 20),
                                     Image.asset(
                                       'assets/talk.png',
                                       fit: BoxFit.cover,
                                       width: 50, // Kích thước cố định
                                     ),
-                                    SizedBox(width: 20),
+                                    const SizedBox(width: 20),
                                     Image.asset(
                                       'assets/line.png',
                                       fit: BoxFit.cover,
@@ -209,11 +210,11 @@ class SignIn extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 30),
+                                const SizedBox(height: 30),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text("Don't have an account? "),
+                                    const Text("Don't have an account? "),
                                     GestureDetector(
                                       onTap: () {
                                         // Điều hướng đến SignUp
@@ -224,7 +225,7 @@ class SignIn extends StatelessWidget {
                                           ),
                                         );
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'Sign up',
                                         style: TextStyle(
                                           fontSize: 16,

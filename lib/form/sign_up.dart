@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http; // Import http package
 import 'dart:convert'; // Import dart:convert for jsonEncode
 
 class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -41,7 +43,7 @@ class _SignUpState extends State<SignUp> {
 
   Widget _buildBackgroundContainer() {
     return Container(
-      color: Color.fromARGB(250, 0, 206, 166),
+      color: const Color.fromARGB(250, 0, 206, 166),
       width: double.infinity,
       height: 950,
       child: Column(
@@ -231,7 +233,7 @@ class _SignUpState extends State<SignUp> {
       onPressed: () async {
         if (_formKey.currentState!.validate()) {
           final response = await http.post(
-            Uri.parse('https://api-flutter-aemy.onrender.com/user/signup'),
+            Uri.parse('https://api-flutter-8wm7.onrender.com/user/signup'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
             },
@@ -248,7 +250,7 @@ class _SignUpState extends State<SignUp> {
           if (response.statusCode == 201) {
             print('Sign Up Successful');
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Sign Up Successful')),
+              const SnackBar(content: Text('Sign Up Successful')),
             );
           } else {
             print('Failed to Sign Up: ${response.body}');

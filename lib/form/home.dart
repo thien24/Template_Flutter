@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'travel.dart';
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,6 +13,8 @@ class Home extends StatelessWidget {
 }
 
 class HomeApp extends StatefulWidget {
+  const HomeApp({super.key});
+
   @override
   _HomeAppState createState() => _HomeAppState();
 }
@@ -34,14 +38,14 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => TravelPage()),
+                MaterialPageRoute(builder: (context) => const TravelPage()),
               );
             },
           ),
@@ -49,7 +53,7 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
             children: [
               Container(
                 height: 150,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
                       'https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg',
@@ -58,7 +62,7 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
                   ),
                 ),
               ),
-              Positioned(
+              const Positioned(
                 left: 16,
                 bottom: 20,
                 child: Column(
@@ -98,7 +102,7 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(25.0),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 4.0,
@@ -106,7 +110,7 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
                   ),
                 ],
               ),
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
                   hintText: 'Hi, where do you want to explore?',
                   hintStyle: TextStyle(
@@ -114,9 +118,10 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
                     color: Color.fromARGB(180, 153, 236, 218),
                   ),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   suffixIcon: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: EdgeInsets.only(right: 10.0),
                     child: Icon(Icons.search),
                   ),
                 ),
@@ -124,7 +129,7 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
             ),
           ),
           // TabBar with two tabs
-         
+
           // TabBarView for content
           Expanded(
             child: TabBarView(
@@ -139,8 +144,8 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Color(0xFF00C39A),
-        child: Icon(Icons.add),
+        backgroundColor: const Color(0xFF00C39A),
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
@@ -149,10 +154,12 @@ class _HomeAppState extends State<HomeApp> with SingleTickerProviderStateMixin {
 
 // Updated AvailableTours class
 class AvailableTours extends StatelessWidget {
+  const AvailableTours({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8.0),
       children: [
         TourCard(
           imageUrl: 'assets/halong.png',
@@ -204,7 +211,8 @@ class TourCard extends StatelessWidget {
   final int likes;
   final int rating;
 
-  TourCard({
+  const TourCard({
+    super.key,
     required this.imageUrl,
     required this.location,
     required this.date,
@@ -220,14 +228,15 @@ class TourCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       elevation: 4,
       child: Column(
         children: [
           Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(15.0)),
                 child: Image.asset(
                   imageUrl,
                   height: 150,
@@ -250,10 +259,10 @@ class TourCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
                       '$likes likes',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.normal,
                       ),
@@ -273,43 +282,45 @@ class TourCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         location,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.favorite_border,
                       color: Colors.red,
                       size: 24.0,
                     ),
                   ],
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Row(
                   children: [
-                    Icon(Icons.date_range, size: 16.0, color: Colors.grey),
-                    SizedBox(width: 4.0),
+                    const Icon(Icons.date_range,
+                        size: 16.0, color: Colors.grey),
+                    const SizedBox(width: 4.0),
                     Text(
                       date,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 4.0),
+                const SizedBox(height: 4.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.access_time, size: 16.0, color: Colors.grey),
-                        SizedBox(width: 4.0),
+                        const Icon(Icons.access_time,
+                            size: 16.0, color: Colors.grey),
+                        const SizedBox(width: 4.0),
                         Text(
                           duration,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14.0,
                           ),
                         ),
@@ -317,7 +328,7 @@ class TourCard extends StatelessWidget {
                     ),
                     Text(
                       price,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16.0,
                         color: Colors.green,
                         fontWeight: FontWeight.bold,
@@ -336,6 +347,8 @@ class TourCard extends StatelessWidget {
 
 // WishList class
 class WishList extends StatelessWidget {
+  const WishList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -346,13 +359,11 @@ class WishList extends StatelessWidget {
             borderRadius: BorderRadius.circular(25.0),
           ),
           elevation: 4,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
+          child: const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                
-              ],
+              children: [],
             ),
           ),
         );

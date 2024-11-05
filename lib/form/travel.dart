@@ -42,7 +42,7 @@ class City {
 
 Future<List<City>> fetchCities() async {
   final response =
-      await http.get(Uri.parse('https://api-flutter-aemy.onrender.com/trip'));
+      await http.get(Uri.parse('https://api-flutter-8wm7.onrender.com/trip'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);
@@ -62,7 +62,7 @@ class TravelPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
                     'https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
@@ -78,7 +78,7 @@ class TravelPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -88,22 +88,23 @@ class TravelPage extends StatelessWidget {
                           _buildTripContainer('Wish List', isWishList: true),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       FutureBuilder<List<City>>(
                         future: fetchCities(),
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
-                            return Center(child: CircularProgressIndicator());
+                            return const Center(
+                                child: CircularProgressIndicator());
                           } else if (snapshot.hasError) {
                             return Center(
                                 child: Text('Lỗi: ${snapshot.error}'));
                           } else {
                             final cities = snapshot.data!;
-                            return Expanded(
+                            return Flexible(
                               child: GridView.builder(
                                 gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   childAspectRatio: 1.0,
                                 ),
@@ -127,13 +128,13 @@ class TravelPage extends StatelessWidget {
             right: 20,
             child: Container(
               width: 40,
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 215, 218, 212),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.lightGreen, width: 2),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 color: Colors.lightGreen,
                 size: 28,
@@ -144,7 +145,7 @@ class TravelPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Trang Chủ'),
           BottomNavigationBarItem(icon: Icon(Icons.textsms), label: 'Message'),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -173,7 +174,7 @@ class TravelPage extends StatelessWidget {
           } else if (index == 4) {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => ProfilePage()),
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
             );
           }
         },
@@ -184,7 +185,7 @@ class TravelPage extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     return Container(
       height: 120,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: NetworkImage(
               'https://tiki.vn/blog/wp-content/uploads/2023/03/cau-rong-da-nang.jpg'),
@@ -192,7 +193,7 @@ class TravelPage extends StatelessWidget {
         ),
       ),
       child: AppBar(
-        title: Text('Create New Trip'),
+        title: const Text('Create New Trip'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -201,7 +202,7 @@ class TravelPage extends StatelessWidget {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => SignIn()));
           },
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
         ),
       ),
     );
@@ -209,7 +210,7 @@ class TravelPage extends StatelessWidget {
 
   Widget _buildTripContainer(String title, {bool isWishList = false}) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: isWishList ? Colors.green : Colors.white,
         border: Border.all(
@@ -222,7 +223,7 @@ class TravelPage extends StatelessWidget {
 
   Widget _buildCityCard(City city) {
     return Card(
-      margin: EdgeInsets.all(4),
+      margin: const EdgeInsets.all(4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -235,24 +236,24 @@ class TravelPage extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.cover,
                     )
-                  : Icon(Icons.image, size: 80, color: Colors.grey),
+                  : const Icon(Icons.image, size: 80, color: Colors.grey),
               Positioned(
                 left: 4,
                 top: 60,
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_pin,
                       color: Colors.red,
                       size: 16,
                     ),
-                    SizedBox(width: 4),
-                    Container(
+                    const SizedBox(width: 4),
+                    SizedBox(
                       width: 140,
                       child: Text(
                         city.name,
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 245, 244, 244),
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 245, 244, 244),
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
                         ),
@@ -269,19 +270,20 @@ class TravelPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Text(
                   city.tripName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Row(
                   children: [
-                    Icon(Icons.calendar_today, size: 10, color: Colors.grey),
-                    SizedBox(width: 4),
+                    const Icon(Icons.calendar_today,
+                        size: 10, color: Colors.grey),
+                    const SizedBox(width: 4),
                     Text(
                       city.date,
                       style: TextStyle(
@@ -293,8 +295,8 @@ class TravelPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.access_time, size: 10, color: Colors.grey),
-                    SizedBox(width: 4),
+                    const Icon(Icons.access_time, size: 10, color: Colors.grey),
+                    const SizedBox(width: 4),
                     Text(
                       city.time,
                       style: TextStyle(
@@ -306,8 +308,8 @@ class TravelPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(Icons.person, size: 10, color: Colors.grey),
-                    SizedBox(width: 4),
+                    const Icon(Icons.person, size: 10, color: Colors.grey),
+                    const SizedBox(width: 4),
                     Text(
                       city.guide,
                       style: TextStyle(
@@ -317,7 +319,7 @@ class TravelPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: city.actions.entries.map((entry) {
@@ -325,9 +327,9 @@ class TravelPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
                       child: Row(
                         children: [
-                          Icon(Icons.check_circle,
+                          const Icon(Icons.check_circle,
                               size: 10, color: Colors.green),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text(
                             entry.key,
                             style: TextStyle(

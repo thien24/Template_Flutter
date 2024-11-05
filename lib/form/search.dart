@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'travel.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({super.key});
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -14,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> _search(String query) async {
     final response = await http
-        .get(Uri.parse('https://api-flutter-aemy.onrender.com/address'));
+        .get(Uri.parse('https://api-flutter-8wm7.onrender.com/address'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
@@ -34,15 +36,15 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mời ae search'),
+        title: const Text('Mời ae search'),
         backgroundColor:
             const Color.fromRGBO(202, 241, 234, 1), // Đặt màu nền cho AppBar
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => TravelPage()),
+              MaterialPageRoute(builder: (context) => const TravelPage()),
             );
           },
         ),
@@ -52,10 +54,10 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           children: [
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Tìm kiếm điểm đến, tour...',
                 filled: true,
-                fillColor: const Color.fromARGB(180, 214, 237, 231),
+                fillColor: Color.fromARGB(180, 214, 237, 231),
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.search),
               ),
@@ -73,7 +75,7 @@ class _SearchPageState extends State<SearchPage> {
                 }
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: _searchResults.length,
@@ -119,8 +121,9 @@ class DetailPage extends StatelessWidget {
   final String imageCity;
   final String note;
 
-  DetailPage(
-      {required this.name,
+  const DetailPage(
+      {super.key,
+      required this.name,
       required this.avatar,
       required this.city,
       required this.imageCity,
@@ -130,7 +133,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chi tiết'),
+        title: const Text('Chi tiết'),
         backgroundColor: const Color.fromARGB(255, 216, 231, 229),
       ),
       body: Padding(
@@ -142,15 +145,16 @@ class DetailPage extends StatelessWidget {
               backgroundImage: NetworkImage(avatar),
               radius: 40,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text('Tên: $name',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
-            Text('Thành phố: $city', style: TextStyle(fontSize: 18)),
-            SizedBox(height: 10),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            Text('Thành phố: $city', style: const TextStyle(fontSize: 18)),
+            const SizedBox(height: 10),
             Image.network(imageCity, fit: BoxFit.cover),
-            SizedBox(height: 10),
-            Text('Ghi chú: $note', style: TextStyle(fontSize: 16)),
+            const SizedBox(height: 10),
+            Text('Ghi chú: $note', style: const TextStyle(fontSize: 16)),
           ],
         ),
       ),
