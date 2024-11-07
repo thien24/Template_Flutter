@@ -233,7 +233,7 @@ class _SignUpState extends State<SignUp> {
       onPressed: () async {
         if (_formKey.currentState!.validate()) {
           final response = await http.post(
-            Uri.parse('https://api-flutter-8wm7.onrender.com/user/signup'),
+            Uri.parse('https://api-flutter-ivay.onrender.com/user/signup'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
             },

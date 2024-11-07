@@ -86,8 +86,8 @@ class ProfilePage extends StatelessWidget {
                       const SizedBox(height: 10),
                       // Use Wrap widget to wrap photos to next line
                       Wrap(
-                        spacing: 8.0, // Horizontal space between photos
-                        runSpacing: 8.0, // Vertical space between rows
+                        spacing: 30.0, // Horizontal space between photos
+                        runSpacing: 20.0, // Vertical space between rows
                         children: [
                           _buildPhotoItem('assets/zalo3.png'),
                           _buildPhotoItem('assets/zalo2.png'),
@@ -131,7 +131,7 @@ class ProfilePage extends StatelessWidget {
                           Text(
                             'thien98405@donga.edu.vn',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 16,
                               color: Colors.grey[600],
                             ),
                           ),

@@ -42,7 +42,7 @@ class City {
 
 Future<List<City>> fetchCities() async {
   final response =
-      await http.get(Uri.parse('https://api-flutter-8wm7.onrender.com/trip'));
+      await http.get(Uri.parse('https://api-flutter-ivay.onrender.com/trip'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);
@@ -164,7 +164,6 @@ class TravelPage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => ChatApp()),
             );
           } else if (index == 3) {
-            // Điều hướng đến trang SearchPage
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
@@ -254,7 +253,7 @@ class TravelPage extends StatelessWidget {
                         city.name,
                         style: const TextStyle(
                           color: Color.fromARGB(255, 245, 244, 244),
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -275,19 +274,19 @@ class TravelPage extends StatelessWidget {
                   city.tripName,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                    fontSize: 14,
                   ),
                 ),
                 const SizedBox(height: 2),
                 Row(
                   children: [
                     const Icon(Icons.calendar_today,
-                        size: 10, color: Colors.grey),
+                        size: 14, color: Colors.grey),
                     const SizedBox(width: 4),
                     Text(
                       city.date,
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 14,
                         color: Colors.grey[600],
                       ),
                     ),
@@ -295,12 +294,12 @@ class TravelPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.access_time, size: 10, color: Colors.grey),
+                    const Icon(Icons.access_time, size: 14, color: Colors.grey),
                     const SizedBox(width: 4),
                     Text(
                       city.time,
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 14,
                         color: Colors.grey[600],
                       ),
                     ),
@@ -308,12 +307,12 @@ class TravelPage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.person, size: 10, color: Colors.grey),
+                    const Icon(Icons.person, size: 14, color: Colors.grey),
                     const SizedBox(width: 4),
                     Text(
                       city.guide,
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 14,
                         color: Colors.grey[600],
                       ),
                     ),
@@ -328,12 +327,12 @@ class TravelPage extends StatelessWidget {
                       child: Row(
                         children: [
                           const Icon(Icons.check_circle,
-                              size: 10, color: Colors.green),
+                              size: 12, color: Colors.green),
                           const SizedBox(width: 2),
                           Text(
                             entry.key,
                             style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 14,
                               color: Colors.grey[600],
                             ),
                           ),

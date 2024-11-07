@@ -16,11 +16,10 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> _search(String query) async {
     final response = await http
-        .get(Uri.parse('https://api-flutter-8wm7.onrender.com/address'));
+        .get(Uri.parse('https://api-flutter-ivay.onrender.com/address'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
-      // Lọc dữ liệu dựa trên từ khóa tìm kiếm
       setState(() {
         _searchResults = data
             .where((item) =>
@@ -37,8 +36,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mời ae search'),
-        backgroundColor:
-            const Color.fromRGBO(202, 241, 234, 1), // Đặt màu nền cho AppBar
+        backgroundColor: const Color.fromRGBO(202, 241, 234, 1),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -53,19 +51,23 @@ class _SearchPageState extends State<SearchPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            // Search TextField with a custom look
             TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Tìm kiếm điểm đến, tour...',
                 filled: true,
-                fillColor: Color.fromARGB(180, 214, 237, 231),
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.search),
+                fillColor: const Color.fromARGB(180, 214, 237, 231),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none,
+                ),
+                prefixIcon: const Icon(Icons.search),
+                contentPadding: const EdgeInsets.symmetric(vertical: 15),
               ),
               onChanged: (value) {
                 setState(() {
                   _query = value;
                 });
-                // Gọi hàm tìm kiếm
                 if (value.isNotEmpty) {
                   _search(value);
                 } else {
@@ -77,35 +79,56 @@ class _SearchPageState extends State<SearchPage> {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: ListView.builder(
-                itemCount: _searchResults.length,
-                itemBuilder: (context, index) {
-                  final result = _searchResults[index];
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(result['avatar'] ?? ''),
-                    ),
-                    title: Text(result['name']),
-                    subtitle: Text(
-                        'Thành phố: ${result['city'] ?? 'Không có thông tin'}'),
-                    onTap: () {
-                      // Điều hướng đến trang chi tiết với thông tin đã chọn
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailPage(
-                            name: result['name'],
-                            avatar: result['avatar'],
-                            city: result['city'],
-                            imageCity: result['imagecity'],
-                            note: result['note'],
+              child: _searchResults.isEmpty
+                  ? Center(
+                      child: Text(
+                        'Không có kết quả nào!',
+                        style: TextStyle(fontSize: 18, color: Colors.grey[600]),
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: _searchResults.length,
+                      itemBuilder: (context, index) {
+                        final result = _searchResults[index];
+                        return Card(
+                          elevation: 5,
+                          margin: const EdgeInsets.symmetric(vertical: 8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
+                          child: ListTile(
+                            contentPadding: const EdgeInsets.all(10),
+                            leading: CircleAvatar(
+                              backgroundImage:
+                                  NetworkImage(result['avatar'] ?? ''),
+                            ),
+                            title: Text(
+                              result['name'],
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            subtitle: Text(
+                                'Thành phố: ${result['city'] ?? 'Không có thông tin'}'),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailPage(
+                                    name: result['name'],
+                                    avatar: result['avatar'],
+                                    city: result['city'],
+                                    imageCity: result['imagecity'],
+                                    note: result['note'],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
             ),
           ],
         ),
@@ -141,20 +164,52 @@ class DetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // CircleAvatar with more padding and border
             CircleAvatar(
               backgroundImage: NetworkImage(avatar),
               radius: 40,
             ),
             const SizedBox(height: 10),
-            Text('Tên: $name',
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text(
+              'Tên: $name',
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.deepPurple,
+              ),
+            ),
             const SizedBox(height: 10),
-            Text('Thành phố: $city', style: const TextStyle(fontSize: 18)),
+            Text(
+              'Thành phố: $city',
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.grey,
+              ),
+            ),
             const SizedBox(height: 10),
-            Image.network(imageCity, fit: BoxFit.cover),
+            // Image with rounded corners and some margin
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                imageCity,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: 200,
+              ),
+            ),
             const SizedBox(height: 10),
-            Text('Ghi chú: $note', style: const TextStyle(fontSize: 16)),
+            // Styled note section with padding and border
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                'Ghi chú: $note',
+                style: const TextStyle(fontSize: 16),
+              ),
+            ),
           ],
         ),
       ),

@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.2
+  lottie: ^2.0.0
+  
+ 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -81,6 +84,7 @@ flutter:
     - assets/zalo4.png
     - assets/zalo5.png
     - assets/zalo6.png
+    - assets/animation/loading.json
     
     
 
