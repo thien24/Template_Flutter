@@ -86,6 +86,7 @@ class ProfilePage extends StatelessWidget {
                       const SizedBox(height: 10),
                       // Use Wrap widget to wrap photos to next line
                       Wrap(
+                        alignment: WrapAlignment.center,
                         spacing: 30.0, // Horizontal space between photos
                         runSpacing: 20.0, // Vertical space between rows
                         children: [

@@ -36,7 +36,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mời ae search'),
-        backgroundColor: const Color.fromRGBO(202, 241, 234, 1),
+        backgroundColor: const Color.fromARGB(255, 114, 139, 135),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -56,7 +56,7 @@ class _SearchPageState extends State<SearchPage> {
               decoration: InputDecoration(
                 hintText: 'Tìm kiếm điểm đến, tour...',
                 filled: true,
-                fillColor: const Color.fromARGB(180, 214, 237, 231),
+                fillColor: const Color.fromARGB(180, 108, 133, 126),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                   borderSide: BorderSide.none,
