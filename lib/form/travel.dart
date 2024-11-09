@@ -31,18 +31,24 @@ class City {
     return City(
       name: json['name'] ?? 'Unknown City',
       imageUrl: json['imageURL'] ?? '',
-      tripName: json['trip']['tripName'] ?? 'Unknown Trip',
-      date: json['trip']['date'] ?? 'Unknown Date',
-      time: json['trip']['time'] ?? 'Unknown Time',
-      guide: json['trip']['guide'] ?? 'Unknown Guide',
-      actions: Map<String, String>.from(json['trip']['actions']),
+      tripName: json['trip']?['tripName'] ?? 'Unknown Trip',
+      date: json['trip']?['date'] ?? 'Unknown Date',
+      time: json['trip']?['time'] ?? 'Unknown Time',
+      guide: json['trip']?['guide'] ?? 'Unknown Guide',
+      actions: json['trip']?['actions'] != null
+          ? Map<String, String>.from(json['trip']['actions'])
+          : {
+              'Detail': '',
+              'Chat': '',
+              'Pay': ''
+            }, // Trả về các key mặc định nếu actions là null
     );
   }
 }
 
 Future<List<City>> fetchCities() async {
   final response =
-      await http.get(Uri.parse('https://api-flutter-ivay.onrender.com/trip'));
+      await http.get(Uri.parse('https://api-flutter-lv01.onrender.com/trips'));
 
   if (response.statusCode == 200) {
     List<dynamic> data = json.decode(response.body);

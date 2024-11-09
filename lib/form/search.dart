@@ -16,7 +16,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> _search(String query) async {
     final response = await http
-        .get(Uri.parse('https://api-flutter-ivay.onrender.com/address'));
+        .get(Uri.parse('https://api-flutter-lv01.onrender.com/address'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
