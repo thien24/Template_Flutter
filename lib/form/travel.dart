@@ -7,6 +7,7 @@ import 'chat.dart';
 import 'search.dart'; // Nhập SearchPage ở đây
 import 'Home.dart';
 import 'Profile.dart';
+import 'ChatbotPage.dart';
 
 class City {
   final String name;
@@ -132,18 +133,25 @@ class TravelPage extends StatelessWidget {
           Positioned(
             bottom: 20,
             right: 20,
-            child: Container(
-              width: 40,
-              padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 215, 218, 212),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.lightGreen, width: 2),
-              ),
-              child: const Icon(
-                Icons.add,
-                color: Colors.lightGreen,
-                size: 28,
+            child: GestureDetector(
+              onTap: () {
+                // Điều hướng đến màn hình Chatbot khi nhấn vào icon
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatbotPage()),
+                );
+              },
+              child: Container(
+                width: 80, // Cân chỉnh kích thước container
+                height: 80, // Cân chỉnh kích thước container
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Image.asset(
+                  'assets/chatbot_waving.gif',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -198,16 +206,17 @@ class TravelPage extends StatelessWidget {
         ),
       ),
       child: AppBar(
-        title: const Text('Create New Trip'),
+        title: const Text('Create New Trip',
+            style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromARGB(0, 230, 228, 228),
         elevation: 0,
         leading: IconButton(
           onPressed: () {
             Navigator.pushReplacement(
                 context, MaterialPageRoute(builder: (context) => SignIn()));
           },
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
         ),
       ),
     );

@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   http: ^1.2.2
   lottie: ^2.0.0
+  image_picker: ^1.1.2
+
   
  
 
@@ -85,6 +87,7 @@ flutter:
     - assets/zalo5.png
     - assets/zalo6.png
     - assets/animation/loading.json
+    - assets/chatbot_waving.gif
     
     
 
